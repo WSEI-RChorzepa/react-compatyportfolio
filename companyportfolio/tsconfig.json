@@ -22,5 +22,10 @@
   },
   "include": [
     "src"
-  ]
+  ],
+  "paths": {
+    "styles/*": ["./styles"],
+    "components/*": ["./components"],
+    "containers/*": ["./containers"],
+  }
 }

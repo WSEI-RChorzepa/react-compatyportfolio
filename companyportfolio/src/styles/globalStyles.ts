@@ -1,11 +1,15 @@
 import { createGlobalStyle } from "styled-components";
+import { font } from "./variables";
+
+import "normalize.css";
+import "./imports.css";
 
 const GlobalStyle = createGlobalStyle`
 
     body {
-        font-family: 'Montserrat';
-        font-size: 13px;
-        color: '#34495e';
+        font-family: ${font.fontFamily};
+        font-size: ${font.fontSize};
+        color: ${font.color};
         background-color: rgba(236, 240, 241, .5);
     }
 
