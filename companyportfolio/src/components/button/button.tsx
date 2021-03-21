@@ -3,9 +3,8 @@ import styled from 'styled-components';
 import { darken, lighten } from 'polished';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
-
-import { colors } from '../../styles/variables';
 import { themes } from './themes';
+import { colors } from 'styles/variables';
 import { ButtonThemeType, IButtonProps } from '../types';
 
 const Message = styled.span`

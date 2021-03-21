@@ -1,4 +1,4 @@
-import { colors } from '../../styles/variables';
+import { colors } from 'styles/variables';
 import {  IButtonTheme, ButtonVariant } from '../types'
 
 export const themes: Map<ButtonVariant, IButtonTheme> = new Map();
