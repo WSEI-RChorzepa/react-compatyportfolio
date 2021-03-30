@@ -1,32 +1,31 @@
 import React from 'react';
-import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faComments, faBell, faHome } from '@fortawesome/free-solid-svg-icons';
+import { Row, Flex, Search, HeaderIcon } from 'components';
+import LogoSrc from 'assets/logoWithoutName.png';
+import NavigationDropdown from './NavigationDropdown';
+import * as StyledComponent from './components';
 
-const Navbar = styled.div`
-    background-color: '#FFF';
-    padding: 0.5em 1em;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-`;
-
-const Header: React.VoidFunctionComponent = () => {
+export const Header: React.VoidFunctionComponent = ({ ...rest }) => {
     return (
-        <Navbar>
-            <div>
-                <span>Logo</span>
-                <span>Home</span>
-            </div>
-            <div>
-                <span>Search</span>
-            </div>
-            <div>
-                <span>Icon home</span>
-                <span>Icon Message</span>
-                <span>Icon Alert</span>
-            </div>
-        </Navbar>
+        <StyledComponent.Wrapper {...rest}>
+            <Row>
+                <StyledComponent.Grid>
+                    <Flex direction="row" justifyContent="flex-start" alignItems="center">
+                        <StyledComponent.Logo src={LogoSrc} alt="Brand logo" />
+
+                        <NavigationDropdown />
+                    </Flex>
+                    <Search />
+                    <div>
+                        <Flex direction="row" justifyContent="flex-end" alignItems="center">
+                            <HeaderIcon value={0} renderIcon={<FontAwesomeIcon icon={faHome} />} />
+                            <HeaderIcon value={6} renderIcon={<FontAwesomeIcon icon={faComments} />} />
+                            <HeaderIcon value={6} renderIcon={<FontAwesomeIcon icon={faBell} />} />
+                        </Flex>
+                    </div>
+                </StyledComponent.Grid>
+            </Row>
+        </StyledComponent.Wrapper>
     );
 };
-
-export default Header;
