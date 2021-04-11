@@ -1,5 +1,3 @@
-import { IconDefinition } from '@fortawesome/fontawesome-common-types';
-
 export type ButtonVariant = 'primary' | 'danger';
 
 export type ButtonThemeType = {
@@ -54,7 +52,6 @@ export interface IDropdownOption {
 }
 
 export interface IDropdownProps {
-    icon: IconType;
     label: string;
     items: IDropdownItem[];
 }

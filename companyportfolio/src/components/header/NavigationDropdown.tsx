@@ -19,7 +19,6 @@ const NavIcon: React.VoidFunctionComponent<{ icon: IconDefinition }> = ({ icon }
 const NavigationDropdown: React.FunctionComponent = () => (
     <Dropdown
         label="Home"
-        icon="Home"
         items={[
             {
                 category: 'Platform',

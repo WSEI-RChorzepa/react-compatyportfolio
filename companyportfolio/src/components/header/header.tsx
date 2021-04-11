@@ -1,9 +1,10 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faComments, faBell, faHome } from '@fortawesome/free-solid-svg-icons';
-import { Row, Flex, Search, HeaderIcon } from 'components';
+import { Row, Flex, Search } from 'components';
 import LogoSrc from 'assets/logoWithoutName.png';
 import NavigationDropdown from './NavigationDropdown';
+import HeaderIcon from './HeaderIcon';
 import * as StyledComponent from './components';
 
 export const Header: React.VoidFunctionComponent = ({ ...rest }) => {
@@ -13,7 +14,6 @@ export const Header: React.VoidFunctionComponent = ({ ...rest }) => {
                 <StyledComponent.Grid>
                     <Flex direction="row" justifyContent="flex-start" alignItems="center">
                         <StyledComponent.Logo src={LogoSrc} alt="Brand logo" />
-
                         <NavigationDropdown />
                     </Flex>
                     <Search />

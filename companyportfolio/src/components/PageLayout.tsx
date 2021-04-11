@@ -6,7 +6,7 @@ import { Navigation } from './Navigation';
 
 const Wrapper = styled.div<{ theme: ITheme }>`
     display: grid;
-    grid-template-columns: 150px auto;
+    grid-template-columns: 250px auto;
     grid-template-rows: 50px calc(100vh - 50px);
     grid-template-areas:
         'header header'

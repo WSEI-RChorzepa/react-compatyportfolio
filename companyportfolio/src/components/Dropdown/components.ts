@@ -22,9 +22,9 @@ export const DropdownOptions = styled.div<{ isOpen: boolean }>`
     width: 100%;
     padding: 1rem;
     background-color: #fff;
-    transform: ${({ isOpen }) => (isOpen ? 'scaleY(0)' : 'scaleY(1)')};
+    transform: ${({ isOpen }) => (!isOpen ? 'scaleY(0)' : 'scaleY(1)')};
     transform-origin: left top;
-    opacity: ${({ isOpen }) => (isOpen ? '0' : '1')};
+    opacity: ${({ isOpen }) => (!isOpen ? '0' : '1')};
     display: flex;
     flex-direction: column;
     transition: all 200ms ease-in-out;

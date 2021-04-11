@@ -1,9 +1,12 @@
-import React, { SyntheticEvent, useState } from 'react';
+import React, { SyntheticEvent, useState, useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSortDown } from '@fortawesome/free-solid-svg-icons';
 import { Flex, Input } from 'components';
 import { IDropdownProps, IDropdownItem } from 'types';
 import * as StyledComponent from './components';
+import useOutsideClick from 'hooks/useOutsideClick';
+
+import NoResult from 'components/common/NoResult';
 
 const DropdownOption: React.FunctionComponent<{ item: IDropdownItem }> = ({ item }) => {
     return (
@@ -19,9 +22,12 @@ const DropdownOption: React.FunctionComponent<{ item: IDropdownItem }> = ({ item
     );
 };
 
-export const Dropdown: React.FunctionComponent<IDropdownProps> = ({ label, items }) => {
-    const [isOpen, setOpen] = useState(true);
+export const Dropdown: React.FunctionComponent<IDropdownProps> = ({ label, items, children }) => {
+    const ref = useRef(null);
+    const [isOpen, setOpen] = useState(false);
     const [dropdownItems, setDropdownItems] = useState<IDropdownItem[]>(items);
+
+    useOutsideClick({ ref, callback: () => setOpen(false) });
 
     const filter = (ev: SyntheticEvent) => {
         const value = (ev.target as HTMLInputElement).value;
@@ -37,7 +43,7 @@ export const Dropdown: React.FunctionComponent<IDropdownProps> = ({ label, items
     };
 
     return (
-        <StyledComponent.DropdownWrapper>
+        <StyledComponent.DropdownWrapper ref={ref}>
             <Flex direction="row" justifyContent="space-between" alignItems="center" onClick={() => setOpen(!isOpen)}>
                 <StyledComponent.Label>{label}</StyledComponent.Label>
                 <FontAwesomeIcon icon={faSortDown} />
@@ -49,7 +55,7 @@ export const Dropdown: React.FunctionComponent<IDropdownProps> = ({ label, items
                 {dropdownItems.map((item) => {
                     return item.options.length ? <DropdownOption key={item.category} item={item} /> : null;
                 })}
-                {!dropdownItems.reduce((current, next) => current + next.options.length, 0) && <span>No results</span>}
+                {!dropdownItems.reduce((current, next) => current + next.options.length, 0) && <NoResult />}
             </StyledComponent.DropdownOptions>
         </StyledComponent.DropdownWrapper>
     );
